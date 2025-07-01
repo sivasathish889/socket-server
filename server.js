@@ -9,9 +9,7 @@ const app = express();
 const server = createServer(app);
 const ConservationModel = require("./ConservationModel.js");
 const dbServerCon = require("./db.js");
-let hostname = process.env.SERVER_NAME || "localhost";
-let port = process.env.SERVER_PORT || 3001;
-
+let serverUrl = process.env.SERVER_URL || "localhost";
 
 app.use(cookieParser());
 app.use(
@@ -76,5 +74,5 @@ io.on("connection", (socket) => {
 });
 
 server.listen(3001, () => {
-  console.log(`Ready on http://${hostname}:${port}`);
+  console.log(`Ready on http://${serverUrl}`);
 });
