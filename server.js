@@ -14,19 +14,20 @@ let serverUrl = process.env.SERVER_URL || "localhost";
 app.use(cookieParser());
 app.use(
   cors({
-    origin: ["*"],
+    origin: ["https://chat-application-9hs7-git-master-sivasathish889s-projects.vercel.app/","http://localhost:3000"],
     credentials: true,
   })
 );
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 dbServerCon();
 app.get("/", (req, res) => {
   res.send("Socket server is running");
 });
 const io = new Server(server, {
   cors: {
-    origin: ["*"],
+    origin: ["https://chat-application-9hs7-git-master-sivasathish889s-projects.vercel.app/", "http://localhost:3000"],
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type", "Headers"],
     credentials: true,
