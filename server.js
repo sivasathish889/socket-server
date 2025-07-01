@@ -21,7 +21,9 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 dbServerCon();
-
+app.get("/", (req, res) => {
+  res.send("Socket server is running");
+});
 const io = new Server(server, {
   cors: {
     origin: ["*"],
