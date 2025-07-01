@@ -14,7 +14,7 @@ let serverUrl = process.env.SERVER_URL || "localhost";
 app.use(cookieParser());
 app.use(
   cors({
-    origin: process.env.CLIENT_URL,
+    origin: ["*"],
     credentials: true,
   })
 );
